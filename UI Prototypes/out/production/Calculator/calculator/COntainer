@@ -1,0 +1,24 @@
+        MouseAdapter motion = new MouseAdapter() {
+            int x;
+            int y;
+            @Override
+            public void mouseDragged(MouseEvent e) {
+//                if (f.getCursor().getType() < 12 && f.getCursor().getType() > 3 ){
+//                    int pw = f.getMaximumSize().width,
+//                            ph = f.getMaximumSize().height;
+//                    if (x < pw || y < ph)
+//                        f.setSize(x, y);
+//                }
+                if (!f.isMaximumSizeSet())
+                    f.setSize(x, y);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                x = f.getX();
+                y = f.getY();
+            }
+        };
+
+        f.addMouseListener(motion);
+        f.addMouseMotionListener(motion);
